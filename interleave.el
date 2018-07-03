@@ -434,7 +434,7 @@ Return the position of the newly inserted heading."
         (widen)
         (let ((position (interleave--goto-insert-position)))
           (setq new-note-position (interleave--insert-heading-respect-content position)))
-        (insert (format "Notes for page %d" page))
+		(insert (read-string "Heading: " (format "p%d: " page)))
         (org-set-property interleave--page-note-prop (number-to-string page))
         (interleave--narrow-to-subtree)
         (org-cycle-hide-drawers t)))
